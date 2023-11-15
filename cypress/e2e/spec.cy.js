@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+require('cypress-terminal-report/src/installLogsCollector')()
+
 beforeEach(() => {
   // clear the backend data
   cy.request('POST', '/reset', { todos: [] })

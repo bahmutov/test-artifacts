@@ -9,8 +9,10 @@ module.exports = defineConfig({
     video: true,
     screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-      // and load any plugins that require the Node environment
+      const logOptions = {
+        printLogsToConsole: 'always',
+      }
+      require('cypress-terminal-report/src/installLogsPrinter')(on, logOptions)
     },
   },
 })
