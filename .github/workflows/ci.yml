@@ -1,5 +1,9 @@
 name: split
 on: push
+env:
+  # need to pass to the cypress-debugger to be able to connect
+  # to the actual browser after Cypress launches it
+  ELECTRON_EXTRA_LAUNCH_ARGS: '--remote-debugging-port=9222'
 jobs:
   split:
     uses: bahmutov/cypress-workflows/.github/workflows/split.yml@v2

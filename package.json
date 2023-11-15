@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "cypress": "^13.5.1",
+    "cypress-debugger": "^1.0.9",
     "cypress-terminal-report": "^5.3.9",
     "prettier": "^3.0.3"
   }
