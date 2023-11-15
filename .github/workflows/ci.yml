@@ -1,9 +1,9 @@
 name: split
-on:
-  workflow_dispatch:
+on: push
 jobs:
   split:
     uses: bahmutov/cypress-workflows/.github/workflows/split.yml@v2
     with:
       nE2E: 1
+      start: npm start
       store-artifacts: true
