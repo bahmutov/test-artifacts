@@ -30,8 +30,7 @@ it('clears the completes todos', () => {
   cy.log('**clear completed items**')
   cy.get('[data-cy="filter-completed"]').click()
   cy.location('hash').should('equal', '#/completed')
-  // an error on purpose
-  cy.get('li.todo', { timeout: 0 }).should('have.length', 10)
+  cy.get('li.todo').should('have.length', 1)
   cy.contains('button', 'Clear completed').click()
   cy.log('**see all todos**')
   cy.get('[data-cy="filter-all"]').click()
