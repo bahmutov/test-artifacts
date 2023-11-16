@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
-const { debuggerSupport } = require('cypress-debugger')
-debuggerSupport()
+require('cypress-terminal-report/src/installLogsCollector')()
 
 beforeEach(() => {
   // clear the backend data

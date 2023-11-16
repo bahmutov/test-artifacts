@@ -1,5 +1,4 @@
 const { defineConfig } = require('cypress')
-const { debuggerPlugin } = require('cypress-debugger')
 
 module.exports = defineConfig({
   e2e: {
@@ -10,8 +9,10 @@ module.exports = defineConfig({
     video: true,
     screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
-      debuggerPlugin(on, config)
-      return config
+      const logOptions = {
+        printLogsToConsole: 'always',
+      }
+      require('cypress-terminal-report/src/installLogsPrinter')(on, logOptions)
     },
   },
 })
