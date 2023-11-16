@@ -1,5 +1,11 @@
 /// <reference types="cypress" />
 
+require('cypress-mochawesome-reporter/register')
+afterEach(() => {
+  cy.wait(50, { log: false }).then(() => {
+    cy.addTestContext(Cypress.TerminalReport.getLogs('txt'))
+  })
+})
 require('cypress-terminal-report/src/installLogsCollector')()
 
 beforeEach(() => {
@@ -25,7 +31,7 @@ it('clears the completes todos', () => {
   cy.get('[data-cy="filter-completed"]').click()
   cy.location('hash').should('equal', '#/completed')
   // an error on purpose
-  cy.get('li.todo').should('have.length', 10)
+  cy.get('li.todo', { timeout: 0 }).should('have.length', 10)
   cy.contains('button', 'Clear completed').click()
   cy.log('**see all todos**')
   cy.get('[data-cy="filter-all"]').click()

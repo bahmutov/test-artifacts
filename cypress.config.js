@@ -8,11 +8,11 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost:3000',
     video: true,
     screenshotOnRunFailure: true,
-    setupNodeEvents(on, config) {
-      const logOptions = {
-        printLogsToConsole: 'always',
-      }
-      require('cypress-terminal-report/src/installLogsPrinter')(on, logOptions)
+    reporter: 'cypress-mochawesome-reporter',
+    setupNodeEvents(cypressOn, config) {
+      const on = require('cypress-on-fix')(cypressOn)
+      require('cypress-mochawesome-reporter/plugin')(on)
+      require('cypress-terminal-report/src/installLogsPrinter')(on)
     },
   },
 })
