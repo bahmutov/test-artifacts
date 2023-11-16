@@ -2,6 +2,8 @@
 
 > Example storing test artifacts after Cypress tests
 
+An example repo for the presentation [Fast Testing Using Cypress For Free](https://slides.com/bahmutov/fast-testing-using-cypress-for-free)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2023
